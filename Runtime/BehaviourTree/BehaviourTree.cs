@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Zayene.UnityAITools.BehaviourTree
@@ -31,7 +30,7 @@ namespace Zayene.UnityAITools.BehaviourTree
         {
             InitTree();
         }
-        public void Update()
+        public void FixedUpdate()
         {
             if (root != null)
             {

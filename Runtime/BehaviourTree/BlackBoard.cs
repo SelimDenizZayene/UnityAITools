@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 namespace Zayene.UnityAITools.BehaviourTree
 {
@@ -11,7 +9,7 @@ namespace Zayene.UnityAITools.BehaviourTree
     {
         Dictionary<string, object> BBData = new Dictionary<string, object>();
 
-        public event Action<string> onBBKeyUpdated;
+        public event Action<string> OnBBKeyUpdated;
 
         public BlackBoard() { }
 
@@ -20,7 +18,7 @@ namespace Zayene.UnityAITools.BehaviourTree
             if (BBData.ContainsKey(key))
             {
                 BBData[key] = value;
-                onBBKeyUpdated?.Invoke(key);
+                OnBBKeyUpdated?.Invoke(key);
             }
             else
             {
@@ -33,7 +31,7 @@ namespace Zayene.UnityAITools.BehaviourTree
             if (!BBData.ContainsKey(key)) return;
 
             BBData[(key)] = value;
-            onBBKeyUpdated?.Invoke(key);
+            OnBBKeyUpdated?.Invoke(key);
         }
 
         public void RemoveEntry(string key)
