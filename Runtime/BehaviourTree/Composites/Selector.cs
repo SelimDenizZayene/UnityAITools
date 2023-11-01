@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Zayene.UnityAITools.BehaviourTree
+﻿namespace Zayene.UnityAITools.BehaviourTree
 {
     public class Selector : CompositeNode
     {
