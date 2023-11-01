@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Zayene.UnityAITools.BehaviourTree
@@ -37,6 +38,16 @@ namespace Zayene.UnityAITools.BehaviourTree
                 return BBData[key];
             }
             return null;
+        }
+
+        public List<string> GetKeys()
+        {
+            return BBData.Keys.ToList();
+        }
+
+        public Dictionary<string, object> GetBBData()
+        {
+            return BBData;
         }
 
     }
