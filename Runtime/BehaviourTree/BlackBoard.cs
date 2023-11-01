@@ -11,6 +11,8 @@ namespace Zayene.UnityAITools.BehaviourTree
     {
         Dictionary<string, object> BBData = new Dictionary<string, object>();
 
+        public event Action<string> onBBKeyUpdated;
+
         public BlackBoard() { }
 
         public void AddOrOverwriteEntry(string key, object value)
@@ -18,6 +20,7 @@ namespace Zayene.UnityAITools.BehaviourTree
             if (BBData.ContainsKey(key))
             {
                 BBData[key] = value;
+                onBBKeyUpdated?.Invoke(key);
             }
             else
             {
@@ -25,19 +28,26 @@ namespace Zayene.UnityAITools.BehaviourTree
             }
         }
 
+        public void UpdateEntry(string key, object value)
+        {
+            if (!BBData.ContainsKey(key)) return;
+
+            BBData[(key)] = value;
+            onBBKeyUpdated?.Invoke(key);
+        }
+
         public void RemoveEntry(string key)
         {
             if (!BBData.ContainsKey(key)) return;
+
             BBData.Remove(key);
         }
 
         public object GetEntry(string key)
         {
-            if(BBData.ContainsKey(key))
-            { 
-                return BBData[key];
-            }
-            return null;
+            if (!BBData.ContainsKey(key)) return null;
+            
+            return BBData[key];
         }
 
         public List<string> GetKeys()
