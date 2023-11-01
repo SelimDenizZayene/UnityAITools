@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Zayene.UnityAITools.BehaviourTree
 {
-    public class BehaviourTree : MonoBehaviour
+    public abstract class BehaviourTree : MonoBehaviour
     {
-
+        public Node root;
+        public BlackBoard blackBoard;
     }
 }
