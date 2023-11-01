@@ -1,0 +1,13 @@
+{
+  "name": "com.zayene.unityaitools",
+  "version": "0.0.1",
+  "displayName": "Zayene Unity AI Tools",
+  "description": "tools for implementing AI into Unity",
+  "unity": "2022.3",
+  "author": 
+  {
+    "name": "Selim Deniz Zayene",
+    "email": "denizselimzayene@gmail.com",
+    "url": ""
+  }
+}
