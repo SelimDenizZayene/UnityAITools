@@ -2,12 +2,15 @@
 
 namespace Zayene.UnityAITools.BehaviourTree
 {
-    public class Sequence : Node
+    public class Sequence : CompositeNode
     {
+        public Sequence() : base() { }
         public Sequence(BehaviourTree tree) : base(tree) { }
-        public Sequence(Node parent) : base(parent) { }
-        public Sequence(BehaviourTree tree, List<Node> children) : base(tree, children) { }
 
+        /// <summary>
+        /// Sequence Node, acts as an And gate
+        /// </summary>
+        /// <returns>Returns Success when all children execute successfully in order</returns>
         public override NodeState Evaluate()
         {
             foreach (Node child in children)

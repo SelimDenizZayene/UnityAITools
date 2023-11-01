@@ -1,6 +1,6 @@
 {
   "name": "com.zayene.unityaitools",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "displayName": "Zayene Unity AI Tools",
   "description": "tools for implementing AI into Unity",
   "unity": "2022.3",

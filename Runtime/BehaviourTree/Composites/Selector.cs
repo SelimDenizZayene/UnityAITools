@@ -2,12 +2,15 @@
 
 namespace Zayene.UnityAITools.BehaviourTree
 {
-    public class Selector : Node
+    public class Selector : CompositeNode
     {
+        public Selector() : base() { }
         public Selector(BehaviourTree tree) : base(tree) { }
-        public Selector(Node parent) : base(parent) { }
-        public Selector(BehaviourTree tree, List<Node> children) : base(tree, children) { }
 
+        /// <summary>
+        /// Selector Node, acts as a OR gate
+        /// </summary>
+        /// <returns>Returns Success when any child executes successfully</returns>
         public override NodeState Evaluate()
         {
             foreach (Node child in children)

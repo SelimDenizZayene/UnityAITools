@@ -13,6 +13,9 @@ namespace Zayene.UnityAITools.BehaviourTree
 
         public BlackBoard() { }
 
+        /// <summary>
+        /// Adds a new key value pair or updates an existing one
+        /// </summary>
         public void AddOrOverwriteEntry(string key, object value)
         {
             if (BBData.ContainsKey(key))
@@ -26,6 +29,9 @@ namespace Zayene.UnityAITools.BehaviourTree
             }
         }
 
+        /// <summary>
+        /// Updates a key with a new value if it exists
+        /// </summary>
         public void UpdateEntry(string key, object value)
         {
             if (!BBData.ContainsKey(key)) return;
@@ -34,6 +40,9 @@ namespace Zayene.UnityAITools.BehaviourTree
             OnBBKeyUpdated?.Invoke(key);
         }
 
+        /// <summary>
+        /// Removes a key value pair from the BBData
+        /// </summary>
         public void RemoveEntry(string key)
         {
             if (!BBData.ContainsKey(key)) return;
@@ -41,6 +50,9 @@ namespace Zayene.UnityAITools.BehaviourTree
             BBData.Remove(key);
         }
 
+        /// <summary>
+        /// Finds and returns the object associated with the key, returns null if none exists
+        /// </summary>
         public object GetEntry(string key)
         {
             if (!BBData.ContainsKey(key)) return null;

@@ -7,30 +7,12 @@ namespace Zayene.UnityAITools.BehaviourTree
         public Node root;
         public BlackBoard blackBoard = new();
 
-        #region Constructors
-
-        public BehaviourTree() { }
-
-        public BehaviourTree(Node root)
-        {
-            root.tree = this;
-            this.root = root;
-        }
-
-        public BehaviourTree(Node root, BlackBoard blackBoard)
-        {
-            root.tree = this;
-            this.root = root;
-            this.blackBoard = blackBoard;
-        }
-
-        #endregion
-
         public void Start()
         {
             InitTree();
         }
-        public void FixedUpdate()
+
+        public void Update()
         {
             if (root != null)
             {
@@ -38,6 +20,6 @@ namespace Zayene.UnityAITools.BehaviourTree
             }
         }
 
-        public virtual void InitTree() { }
+        public abstract void InitTree();
     }
 }
