@@ -15,7 +15,7 @@ namespace Zayene.UnityAITools.BehaviourTree
             }
             if ((bool)tree.blackBoard.GetEntry(condKey))
             {
-                state = NodeState.Success;
+                state = child.Evaluate();
                 return state;
             }
             else
