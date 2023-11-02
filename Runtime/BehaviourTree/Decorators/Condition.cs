@@ -1,19 +1,29 @@
+using System;
+
 namespace Zayene.UnityAITools.BehaviourTree
 {
+    /// <summary>
+    /// if the condition is true evaluates child otherwise returns failure.
+    /// </summary>
     public class Condition : Decorator
     {
-        private string condKey;
+        public string condKey;
+        private bool condValue;
         public Condition(string condKey) : base() { this.condKey = condKey; }
         public Condition(BehaviourTree tree, string condKey) : base(tree) { this.condKey = condKey; }
 
         public override NodeState Evaluate()
         {
-            if(tree.blackBoard.GetEntry(condKey) == null)
+            try 
             {
-                state = NodeState.Failure;
-                return state;
+                condValue = (bool)tree.blackBoard.GetEntry(condKey);
+            } 
+            catch(Exception e) 
+            {
+                throw e;
             }
-            if ((bool)tree.blackBoard.GetEntry(condKey))
+
+            if (condValue)
             {
                 state = child.Evaluate();
                 return state;

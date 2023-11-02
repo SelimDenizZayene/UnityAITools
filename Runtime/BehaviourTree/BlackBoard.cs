@@ -70,5 +70,9 @@ namespace Zayene.UnityAITools.BehaviourTree
             return BBData;
         }
 
+        public bool HasValue(string key)
+        {
+            return BBData.ContainsKey(key);
+        }
     }
 }

@@ -18,5 +18,13 @@ namespace Zayene.UnityAITools.BehaviourTree
             child.tree = this.tree;
             children.Add(child);
         }
+
+        public void AddChildren(List<Node> children)
+        {
+            foreach (Node child in children)
+            {
+                AddChild(child);
+            }
+        }
     }
 }
